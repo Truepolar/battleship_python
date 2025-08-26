@@ -62,7 +62,7 @@ class Placement:
 
         ship = Ship(True , row_coordinate , column_coordinate)
         player = Player(name)
-        player.ship_list.append(ship)
+        player.add_ship(ship)
                              
         
 
