@@ -26,6 +26,8 @@ class Placement:
             ship_placement_column = input()
             print("Enter the row number of the desired ship placement (1-10)\n")
             ship_placement_row = input()
+            print("How many ships would you like to play with? (3-5)")
+            number_of_ships = input()
             ship_placement_row = int(ship_placement_row)
             ship_placement_column = int(ship_placement_column)
             ship_length = 1
@@ -36,6 +38,8 @@ class Placement:
                 print(ship_length)
 
             i = 1
+            
+
 
             if (orientation == "0"):
                 while i <= ship_length:
