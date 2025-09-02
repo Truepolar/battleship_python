@@ -1,9 +1,6 @@
 from ship import Ship
 from player import Player
 
-#cuz i laze ships will only be 3 long
-
-
 class Placement:
 
     def __init__(self):
@@ -18,6 +15,7 @@ class Placement:
         number_of_ships = int(input())
         
         ship_counter = 1
+        health = 0
 
 ##START LOOP AND ASKING VERT OR HORI
 
@@ -54,8 +52,10 @@ class Placement:
                 print("Enter the desired ship length (3-5)\n")
                 ship_length = input()
                 ship_length = int(ship_length)
+                
 
                 i = 1
+            health = health + ship_length
 
  ## THE 2 CHUNKS UNDER IS PROCESSING FOR PLACEMENT
 
@@ -83,6 +83,8 @@ class Placement:
             ship = Ship(True , row_coordinate , column_coordinate)
             player = Player(name)
             player.add_ship(ship)
+            player.health = health
+            
             ship_counter += 1
         
 

@@ -1,6 +1,6 @@
 class Player:
 
-    def __init__(self, name, health=None, ship_list=None):
+    def __init__(self, name=None, health=None, ship_list=None):
         self.name = name
         self.health = health
         self.ship_list = ship_list

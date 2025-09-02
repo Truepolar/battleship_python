@@ -6,13 +6,13 @@ from placement import Placement
 class Game:
 
     def __init__(self):
-        self.player = []
-        
-
-    def add_player(self,name):
-        player = Player(name)
-        self.player.append(player)
+        self.player = Player()
 
     def place_ship(self, name):
         Placement.place_ship(name)
 
+    def player_status(self):
+        print("Player status :\n")
+        print(f"Name : {self.player.name}")
+        print(f"Health : {self.player.health}")
+        print(f"Ships : {self.player.ship_list}")
