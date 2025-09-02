@@ -1,13 +1,7 @@
 from ship import Ship
 from player import Player
 
-class Placement:
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def place_ship(name):
+def place_ship(name, player):
         
 ##HOW MANY SHIPS
 
@@ -57,15 +51,20 @@ class Placement:
                 i = 1
             health = health + ship_length
 
- ## THE 2 CHUNKS UNDER IS PROCESSING FOR PLACEMENT
+ ## THE 2 CHUNKS UNDER IS PROCESSING FOR PLACEMENT AND COLLISION DETECTION
 
             if (orientation == 0):
-                while i <= ship_length:
-                    temp_row = i + ship_placement_row -1
-                    row_coordinate.append(temp_row)
-                    column_coordinate.append(ship_placement_column)
-                    check2 = False
-                    i += 1
+                collion_detection = True
+                while collision_detection == True:
+                    while i <= ship_length:
+                        temp_row = i + ship_placement_row -1
+                        row_coordinate.append(temp_row)
+                        column_coordinate.append(ship_placement_column)
+                        check2 = False
+                        i += 1
+                    
+
+                
                     
             elif (orientation == 1):
                 while i <= ship_length:
@@ -79,13 +78,15 @@ class Placement:
 
             else:
                 check2 = True
-            print(f"Ship {i}, \n row :{row_coordinate} \n column{column_coordinate}")
+            print(f"Ship {i}, \n row :{row_coordinate} \n column{column_coordinate} \n")
             ship = Ship(True , row_coordinate , column_coordinate)
-            player = Player(name)
+            player.name = name
             player.add_ship(ship)
             player.health = health
+            print("OBJECT STATUS : \n")
+            print(player.health)
+            print(player)
             
             ship_counter += 1
-        
-
+        return player
 
