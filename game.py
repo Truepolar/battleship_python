@@ -2,6 +2,7 @@ from player import Player
 from battlefield import Battlefield
 from placement import Placement
 
+
 class Game:
 
     def __init__(self):
@@ -15,4 +16,3 @@ class Game:
     def place_ship(self, name):
         Placement.place_ship(name)
 
-    
