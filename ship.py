@@ -1,8 +1,7 @@
 class Ship:
 
-    def __init__(self, state, row_coordinate , column_coordinate):
+    def __init__(self, state, coordinate_list = None):
         self.state = state
-        self.row_coordinate = row_coordinate
-        self.column_coordinate = column_coordinate
+        self.coordinate_list = coordinate_list or []
        
 

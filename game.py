@@ -11,8 +11,9 @@ class Game:
     def place_ship(self, name, player):
         player = place_ship(name, player)
 
-    def player_status(self, player):
+   
+    def player_status(self):
         print("Player status :\n")
-        print(f"Name : {player.name}")
-        print(f"Health : {player.health}")
-        print(f"Ships : {player.ship_list}")
+        print(f"Name : {self.player.name}")
+        print(f"Health : {self.player.health}")
+        print(f"Ships : {self.player.ship_list}")

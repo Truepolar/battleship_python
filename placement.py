@@ -7,6 +7,7 @@ def place_ship(name, player):
 
         print("How many ships would you like to play with? (3-5)")
         number_of_ships = int(input())
+        coordinate_list = []
         
         ship_counter = 1
         health = 0
@@ -14,9 +15,9 @@ def place_ship(name, player):
 ##START LOOP AND ASKING VERT OR HORI
 
         while ship_counter <= number_of_ships:
+            ship = Ship(True)
             ship_length = 0
-            row_coordinate = []
-            column_coordinate = []
+            coordinate = []
             check = True
             while(check == True): 
                 print("Would you like horizontal or vertical placement? Enter 0 for horizontal and 1 for vertical\n")
@@ -52,15 +53,20 @@ def place_ship(name, player):
             health = health + ship_length
 
  ## THE 2 CHUNKS UNDER IS PROCESSING FOR PLACEMENT AND COLLISION DETECTION
+ ## COLUMNS ARE X, ROWS ARE Y 
 
             if (orientation == 0):
-                collion_detection = True
-                while collision_detection == True:
+                collion_detection = False
+                while collion_detection == False:
                     while i <= ship_length:
-                        temp_row = i + ship_placement_row -1
-                        row_coordinate.append(temp_row)
-                        column_coordinate.append(ship_placement_column)
-                        check2 = False
+                        for other_coordinates in player.ship_list.coordinates:
+                            if coordinate == other_coordinates:
+                                collion_detection = True
+        
+                        temp_column = i + ship_placement_column -1
+                        coordinate.append(temp_column)
+                        coordinate.append(ship_placement_row)
+                        coordinate_list.append(coordinate)
                         i += 1
                     
 
@@ -68,19 +74,24 @@ def place_ship(name, player):
                     
             elif (orientation == 1):
                 while i <= ship_length:
-                    temp_column = i + ship_placement_column -1
-                    row_coordinate.append(temp_column)
-                    column_coordinate.append(ship_placement_column)
-                    check2 = False
+                    for other_coordinates in player.ship_list.coordinate_list:
+                            if coordinate == other_coordinates:
+                                collion_detection = True
+
+                    temp_row = i + ship_placement_row -1
+                    coordinate.append(ship_placement_column)
+                    coordinate.append(temp_row)
+                    coordinate_list.append(coordinate)
                     i += 1
 
 ##APPEND TO OBJECT LIST
 
             else:
                 check2 = True
-            print(f"Ship {i}, \n row :{row_coordinate} \n column{column_coordinate} \n")
-            ship = Ship(True , row_coordinate , column_coordinate)
-            player.name = name
+
+        
+            print(f"Ship {i}, \n coordinates: {player.ship_list.coordinate_list} \n")
+            ship = Ship(True , coordinate_list)
             player.add_ship(ship)
             player.health = health
             print("OBJECT STATUS : \n")
