@@ -2,6 +2,7 @@ from jason_dumps import json_dumps
 from ship import Ship
 from player import Player
 from collision_check import collision_check
+from ship_temp_adder import temp_row,temp_column
 
 def place_ship(name, player):
         
@@ -55,13 +56,26 @@ def place_ship(name, player):
  ## THE 2 LINES UNDER IS PROCESSING FOR PLACEMENT AND COLLISION DETECTION
  ## COLUMNS ARE X, ROWS ARE Y 
 
-            collision_detection = False
-            collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection)
+            if ship_counter == 1:
+                i = 1
+                if (orientation == 0):
+                    while i <= ship_length:
+                        temp_column(coordinate,ship_placement_column,ship_placement_row,coordinate_list,i)
+                        i += 1
+
+                elif (orientation == 1): 
+                    while i <= ship_length:
+                        temp_row(coordinate,ship_placement_column,ship_placement_row,coordinate_list,i)
+                        i += 1
+
+            else:
+                collision_detection = False
+                collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection)
 
             print("pass check")
 ##APPEND TO OBJECT LIST OR DROP OBJ
         
-            if collision_detection == True:
+            if collision_detection == True: ##collision detection broke for 1st iteration
                 check = True
 
             else:
