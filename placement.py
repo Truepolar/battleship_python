@@ -55,7 +55,7 @@ def place_ship(name, player):
 
  ## THE 2 LINES UNDER IS PROCESSING FOR PLACEMENT AND COLLISION DETECTION
  ## COLUMNS ARE X, ROWS ARE Y 
-
+            collision_detection = False
             if ship_counter == 1:
                 i = 1
                 if (orientation == 0):
@@ -67,16 +67,17 @@ def place_ship(name, player):
                     while i <= ship_length:
                         temp_row(coordinate,ship_placement_column,ship_placement_row,coordinate_list,i)
                         i += 1
-
+            
             else:
-                collision_detection = False
+                
                 collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection)
 
             print("pass check")
 ##APPEND TO OBJECT LIST OR DROP OBJ
         
-            if collision_detection == True: ##collision detection broke for 1st iteration
-                check = True
+            if collision_detection == True:
+                print("------ invalid ship coordinates ------")
+                print("---------- please try again ----------")
 
             else:
                 print(f"Ship , \n coordinates: {player.ship_list} \n")
