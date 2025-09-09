@@ -1,9 +1,12 @@
 from ship_temp_adder import temp_column,temp_row
 
-def collision_check(player, orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection):
-    
+def collision_check(player, orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list):
     
     i = 1
+
+    coordinate.append(ship_placement_column)
+    coordinate.append(ship_placement_row)
+
     if (orientation == 0):
         while i <= ship_length and collision_detection == False:
                 for a_ship in player.ship_list:
@@ -11,7 +14,7 @@ def collision_check(player, orientation,ship_length,coordinate,ship_placement_co
                         if coordinate == a_coord:
                             collision_detection = True
                             return collision_detection
-                            break
+                            
         
                         temp_column(coordinate,ship_placement_column,ship_placement_row,coordinate_list,i)
                         i += 1
@@ -23,7 +26,7 @@ def collision_check(player, orientation,ship_length,coordinate,ship_placement_co
                         if coordinate == a_coord:
                             collision_detection = True
                             return collision_detection
-                            break
+                            
 
                         temp_row(coordinate,ship_placement_column,ship_placement_row,coordinate_list,i)
                         i += 1

@@ -11,7 +11,6 @@ def place_ship(name, player):
         print("How many ships would you like to play with? (3-5)")
         number_of_ships = int(input())
         coordinate_list = []
-        
         ship_counter = 1
         health = 0
 
@@ -21,6 +20,7 @@ def place_ship(name, player):
             ship = Ship(True)
             ship_length = 0
             coordinate = []
+            coordinate_list = []
             check = True
             while(check == True): 
                 print("Would you like horizontal or vertical placement? Enter 0 for horizontal and 1 for vertical\n")
@@ -51,11 +51,12 @@ def place_ship(name, player):
                 ship_length = int(input())
 
             health = health + ship_length
+            collision_detection = False
             print("pass check 1")
 
  ## THE 2 LINES UNDER IS PROCESSING FOR PLACEMENT AND COLLISION DETECTION
  ## COLUMNS ARE X, ROWS ARE Y 
-            collision_detection = False
+            
             if ship_counter == 1:
                 i = 1
                 if (orientation == 0):
@@ -69,8 +70,7 @@ def place_ship(name, player):
                         i += 1
             
             else:
-                
-                collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection)
+                collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list)
 
             print("pass check")
 ##APPEND TO OBJECT LIST OR DROP OBJ
