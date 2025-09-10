@@ -50,7 +50,6 @@ def place_ship(name, player):
                 print("Enter the desired ship length (3-5)\n")
                 ship_length = int(input())
 
-            health = health + ship_length
             collision_detection = False
             print("pass check 1")
 
@@ -70,7 +69,8 @@ def place_ship(name, player):
                         i += 1
             
             else:
-                collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list)
+                collision_detection = collision_check(player,orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection)
+                print(collision_detection)
 
             print("pass check")
 ##APPEND TO OBJECT LIST OR DROP OBJ
@@ -82,6 +82,7 @@ def place_ship(name, player):
             else:
                 print(f"Ship , \n coordinates: {player.ship_list} \n")
                 ship = Ship(True , coordinate_list)
+                health += 1
                 player.add_ship(ship)
                 player.health = health
 

@@ -1,6 +1,6 @@
 from ship_temp_adder import temp_column,temp_row
 
-def collision_check(player, orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list):
+def collision_check(player, orientation,ship_length,coordinate,ship_placement_column,ship_placement_row,coordinate_list,collision_detection):
     
     i = 1
 
