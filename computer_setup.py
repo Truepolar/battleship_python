@@ -6,4 +6,5 @@ class Computer_setup:
     @staticmethod
     def computer_setup():
         name = "computer"
-        
+    
+    
